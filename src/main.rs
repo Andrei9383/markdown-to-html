@@ -1,21 +1,18 @@
 use std::fs;
 use std::env;
 
+
 fn main() {
 
     println!("\n----------Starting Markdown to HTML----------\n");
 
-    let args: Vec<String> = env::args().collect();
+    let files = md_html::get_md_files_dir("./");
+    
+    files.iter().for_each(|f| { 
+        // Get the content of the file
+        let _content = md_html::get_content_from_md_file(f.to_string()); 
 
-    // The first argument at runtime
-    let file_path = &args[1];
-
-    println!("Reading from file_path: {file_path}\n");
-
-    let contents = fs::read_to_string(file_path).expect("unable to read the file");
-
-    println!("Succesfully read contents:\n{contents}\n");
-
-
-
+        // Process the file
+        // TODO
+    });
 }
